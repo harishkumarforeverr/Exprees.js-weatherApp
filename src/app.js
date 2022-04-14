@@ -4,7 +4,7 @@ const hbs = require("hbs");
 const geoCode = require("./utils/geocode.js");
 const forecast = require("./utils/forecast.js");
 const app = express();
-
+const port = process.env.PORT || 9999;
 // setting the paths
 const publicPath = path.join(__dirname, "..", "public");
 const ViewsPaths = path.join(__dirname, "..", "templates/views");
@@ -85,6 +85,6 @@ app.get("/help/*", (req, res) => {
 app.get("*", (req, res) => {
   res.render("NotFound");
 });
-app.listen(9999, () => {
-  console.log(`server as started at http://localhost:9999/`);
+app.listen(port, () => {
+  console.log(`server as started at  ${port}`);
 });

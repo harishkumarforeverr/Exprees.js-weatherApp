@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
   p2.textContent = "";
   e.preventDefault();
   if (!input.value) return (p1.textContent = "please enter a valid input");
-  fetch("http://localhost:9999/weather?address=" + input.value).then((res) => {
+  fetch("/weather?address=" + input.value).then((res) => {
     res.json().then((data) => {
       if (data.err) {
         return (p1.textContent = data.err);
